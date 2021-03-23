@@ -1,0 +1,39 @@
+@import "../../scss_units/vars.scss";
+
+.book-item__wrapper {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: $CRAYOLA;
+  color: #fff;
+  transition: background-color 0.5s;
+  margin: 0 15px 15px 0;
+  position: relative;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    background-color: orange;
+  }
+
+  .book-item__author,
+  .book-item__name {
+    margin: 0;
+    text-align: center;
+  }
+
+  .book-item__name {
+    font-weight: bold;
+  }
+
+  .book-item__link {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

@@ -1,0 +1,27 @@
+@import "../../scss_units/vars.scss";
+
+.menu {
+  display: flex;
+  padding: 0 0 5px;
+  border-bottom: 1px solid $MAIN_GREY;
+  margin-bottom: 20px;
+
+  .menu__link {
+    text-decoration: none;
+    color: $CRAYOLA;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  .menu__item {
+    list-style: none;
+    padding: 0;
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

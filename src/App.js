@@ -1,24 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "mobx-react";
+import { Switch, Route, Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { syncHistoryWithStore } from "mobx-react-router";
+
+import BooksList from "./pages/booksList";
+import BooksEditor from "./pages/booksEditor";
+
+import stores from "./stores";
+import routing from "./stores/routing";
+
+import "./App.css";
+
+const browserHistory = createBrowserHistory();
+const history = syncHistoryWithStore(browserHistory, routing);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider {...stores}>
+      <Router history={history}>
+        <div className="wrapper">
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => {
+                return <BooksList activeItemName="booksList" />;
+              }}
+            />
+
+            <Route
+              exact
+              path="/addBook"
+              render={() => {
+                return <BooksEditor activeItemName="booksEditor" />;
+              }}
+            />
+
+            <Route
+              exact
+              path="/editBook/:bookId"
+              render={(data) => {
+                return (
+                  <BooksEditor
+                    bookId={data.match.params.bookId}
+                    activeItemName="booksEditor"
+                  />
+                );
+              }}
+            />
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 

@@ -1,0 +1,13 @@
+@import "../../scss_units/vars.scss";
+
+.delete-book-button {
+  padding: 0;
+  cursor: pointer;
+  color: $CRAYOLA;
+  background: none;
+  border: none;
+
+  &:hover {
+    color: #f00;
+  }
+}

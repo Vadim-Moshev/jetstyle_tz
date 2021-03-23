@@ -1,0 +1,22 @@
+@import "../../scss_units/vars.scss";
+
+.books-editor__labeled-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  .books-editor__label {
+    margin: 0 0 5px 0;
+  }
+
+  .books-editor__input {
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px 0 $CRAYOLA;
+    }
+  }
+}
+
+.books-editor__submit-button {
+  cursor: pointer;
+}
